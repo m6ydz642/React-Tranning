@@ -7,7 +7,6 @@ class App extends Component {
   return (
     <div className="App">
       클래스 방식으로 변경
-      깃 테스트
     </div>
   );
 }
