@@ -22,8 +22,9 @@ class TOC extends Component {
                 <li><a href="3.html">{this.props.html3}</a></li> */}
                  {/* {lists}  */}
                  {/* 위의코드랑 같아짐 */}
-                <li><a href="2.html">css </a></li>
-                <li><a href="3.html">javascript</a></li>
+                {/* <li><a href="2.html">css </a></li>
+                <li><a href="3.html">javascript</a></li> */}
+                {lists}
           </ul>
           </nav> 
     

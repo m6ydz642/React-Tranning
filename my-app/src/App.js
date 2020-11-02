@@ -102,7 +102,7 @@ class App extends Component {
       {/* state 값 2개 전달 */}
     
       {/* <TOC html1="html" html2="css" html3="javascript"></TOC> */}
-      <TOC data={this.props.contents}></TOC>
+      <TOC data={this.state.contents}></TOC>
       <Arti title="title" desc="html is hypertext markyup language"></Arti>
       <Subject> </Subject>
     </div>
