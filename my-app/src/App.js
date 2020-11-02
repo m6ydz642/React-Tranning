@@ -65,31 +65,40 @@ import Arti from "./components/Arti";
 class App extends Component {
   // 자바스크립트와 유사하지만 자바스크립트가 아님
 
-  constructor (props) { // constructor = render보다 먼저 실행되면서 Component를 초기화 시켜줌
-    super(props);
-    this.state = {
-      Subject:{title:"state웹", sub:"state world wide"},
-      contents: [{id:1, title:'sate html', desc:'state html is hypertext...'},
-                {id:2, title:'sate html', desc:'state html is hypertext...'},
-                {id:3, title:'sate html', desc:'state html is hypertext...'},
-    ]
-    
-  }; // state값을 초기화
+
+  // state값을 초기화
  // 내부적으로 사용은 state를 사용함
  // state에서 정의한 값을 props로 준거임
  // 상위컴포넌트 값을 state로 하위 컴포넌트의 props값으로 전달하는 것임
 
- this.state = {
-   Subject:{
-      title:"state 리엑트", 
-      sub:"state for ui"} 
-    }
-}
+  constructor (props) { // constructor = render보다 먼저 실행되면서 Component를 초기화 시켜줌
+    super(props);
+    this.state = {
+      Subject:{title:"state웹", sub:"state world wide"},
+      Subject2:{ // 임의로 여기서 지정한 이름임
+        title:"state 리엑트", 
+        sub:"state for ui"}, 
+
+      // arti에 있는 값을 건드릴 예정(?)
+      contents: [
+        {id:1, title:'satehtml', desc:'state html is hypertext...'},
+        {id:2, title:'satecss', desc:'state css is ...'},
+        {id:3, title:'satejavascript', desc:'state javascript is ...'}
+    ]
+
+    }  
+  }; 
+//  this.state = {
+//    Subject:{
+//       title:"state 리엑트", 
+//       sub:"state for ui"} 
+//     }
+// }
  render() {
   return (
     <div className="App">
       <Subject title={this.state.Subject.title} sub={this.state.Subject.sub}> </Subject>
-      <Subject title={this.state.Subject.title} sub={this.state.Subject.sub}> </Subject> 
+      <Subject title={this.state.Subject2.title} sub={this.state.Subject2.sub}> </Subject> 
       {/* state 값 2개 전달 */}
     
       {/* <TOC html1="html" html2="css" html3="javascript"></TOC> */}
