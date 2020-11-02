@@ -67,13 +67,24 @@ class App extends Component {
 
   constructor (props) { // constructor = render보다 먼저 실행되면서 Component를 초기화 시켜줌
     super(props);
-    this.state = {Subject:{title:"state웹", sub:"state world wide"}}; // state값을 초기화
+    this.state = {
+      Subject:{title:"state웹", sub:"state world wide"},
+      contents: [{id:1, title:'sate html', desc:'state html is hypertext...'},
+                {id:2, title:'sate html', desc:'state html is hypertext...'},
+                {id:3, title:'sate html', desc:'state html is hypertext...'},
+    ]
+    
+  }; // state값을 초기화
  // 내부적으로 사용은 state를 사용함
  // state에서 정의한 값을 props로 준거임
  // 상위컴포넌트 값을 state로 하위 컴포넌트의 props값으로 전달하는 것임
 
- this.state = {Subject:{title:"state 리엑트", sub:"state for ui"} }
-  }
+ this.state = {
+   Subject:{
+      title:"state 리엑트", 
+      sub:"state for ui"} 
+    }
+}
  render() {
   return (
     <div className="App">
@@ -81,7 +92,8 @@ class App extends Component {
       <Subject title={this.state.Subject.title} sub={this.state.Subject.sub}> </Subject> 
       {/* state 값 2개 전달 */}
     
-      <TOC html1="html" html2="css" html3="javascript"></TOC>
+      {/* <TOC html1="html" html2="css" html3="javascript"></TOC> */}
+      <TOC data={this.props.contents}></TOC>
       <Arti title="title" desc="html is hypertext markyup language"></Arti>
       <Subject> </Subject>
     </div>
