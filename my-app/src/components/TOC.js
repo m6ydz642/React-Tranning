@@ -9,9 +9,16 @@ class TOC extends Component {
         var data = this.props.data;
         var i = 0;
         while(i < data.length)  {
-          lists.push(  <li key={data[i].id}><a href={"/content"+data[i].id}>{data[i].title} </a></li>);
+          lists.push(  <li key={data[i].id}><a href={"/content/"+data[i].id+ "." +data[i].title}>{data[i].title} </a></li>);
+          // 확장자 처럼 보이게 하기 
           // react가 내부에서 요구하는 키값
-          i+=1;
+          console.log("state title 데이터 내용", JSON.stringify(data[i].title)); // 3개 다 들어간 상태
+         console.log("data내용", JSON.stringify(data)); 
+         // console.log 에서 원하는 문자열과 같이 출력 시키고 싶으면 JSON.stringify
+         // 함수를 써서 적어야함 안그러면 object[object] 타입으로 나와서 
+         // 단독으로 console.log(변수); 라고 하던지 stringify를 써서 json변환하는함수랑 같이 출력시키던지 해야함
+         
+         i+=1;
         }
         return (
     

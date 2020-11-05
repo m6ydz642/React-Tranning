@@ -11,7 +11,7 @@ class Subject extends Component { // 컴포넌트 상속받아서 subject라는 
           */
     
           <header> 
-          <h1>{this.props.title}</h1>
+          <h1> <a href="/">{this.props.title} </a></h1>
           {this.props.sub}
           </header>
         );
