@@ -9,7 +9,18 @@ class TOC extends Component {
         var data = this.props.data;
         var i = 0;
         while(i < data.length)  {
-          lists.push(  <li key={data[i].id}><a href={"/content/"+data[i].id+ "." +data[i].title}>{data[i].title} </a></li>);
+          lists.push(  
+          <li key={data[i].id}>
+            <a href={"/content/"+data[i].id+ "." +data[i].title}
+            data-id={data[i].id} //  data에 아이디를 가르키는 거임
+            onClick={function(e){
+              e.preventDefault();
+              this.props.onChangePage();
+            }.bind(this)}
+            
+            >{data[i].title} </a>
+            
+            </li>);
           // 확장자 처럼 보이게 하기 
           // react가 내부에서 요구하는 키값
           console.log("state title 데이터 내용", JSON.stringify(data[i].title)); // 3개 다 들어간 상태
