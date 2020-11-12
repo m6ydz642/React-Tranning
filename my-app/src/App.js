@@ -2,7 +2,10 @@ import React, {Component} from 'react';
 import './App.css';
 import TOC from "./components/TOC"; // component폴더에 TOC.js 로딩
 import Subject from "./components/Subject";
-import Arti from "./components/Arti";
+import CreateContent from "./components/CreateContent";
+// import Arti from './components/Arti';
+import Control from './components/Control';
+import ReadContent from './components/ReadContent';
 
 
 
@@ -74,7 +77,7 @@ class App extends Component {
   constructor (props) { // constructor = render보다 먼저 실행되면서 Component를 초기화 시켜줌
     super(props);
     this.state = {
-      mode :'read',
+      mode :'create', // 기본 모드를 create로 해서 작성 바로 가능하게
       selected_content_id:2,
       Subject:{title:"state웹", sub:"state world wide"},
       welcome:{title: 'welcome', desc:'hello react'}, // welcome일때 출력
@@ -99,11 +102,13 @@ class App extends Component {
 //     }
 // }
  render() {
-   var _title, _desc = null;
+   var _title, _desc, _article = null;
 
    if (this.state.mode === 'welcome') {
     _title = this.state.welcome.title;
     _desc = this.state.welcome.desc;
+    _article =  <ReadContent title={_title} desc={_desc}></ReadContent>
+
    }else if (this.state.mode === 'read') {
      var i = 0;
      while(i < this.state.contents.length) {
@@ -117,6 +122,9 @@ class App extends Component {
     }
     i+=1;
    }
+  _article =  <ReadContent title={_title} desc={_desc}></ReadContent>
+  }else if (this.state.mode === 'create') {
+    _article = <CreateContent> </CreateContent>
   }
   return (
     <div className="App">
@@ -160,8 +168,18 @@ class App extends Component {
         selected_content_id:Number(id)
       });
       }.bind(this)} data={this.state.contents}></TOC>
-      <Arti title={_title} desc={_desc}></Arti>
+
+    <Control onChangeMode={function(_mode){ // onchange만듦, 인자로 mode받음
+    this.setState({
+      mode:_mode
+    })
+    }.bind(this)}> </Control> 
+    {/* 아 이거진짜 머리아프게 하네 ㅋㅋ */}
+      {/* <Arti title={_title} desc={_desc}></Arti> */}
       <Subject> </Subject>
+
+     
+      {_article}  {/*  여기서 정의 안하고 위에서 변수로 줘서 변수만 지금처럼 내려 보내도 됨 */}
     </div>
   );
 }
