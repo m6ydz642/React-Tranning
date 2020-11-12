@@ -11,6 +11,16 @@ class CreateContent extends Component { // 컴포넌트 상속받아서 subject�
                  <form action="create_process" method="post" onSubmit={function(e){
                     e.preventDefault(); // 자체 이벤트 안되게 함
                     // onsubmit이 일어날때 create_process로 넘기긴 하지만 이동은 안함
+                  this.props.onSubmit(
+
+                    /*이 onSubmit함수 호출될때  app.js에 
+                    
+                    <CreateContent onSubmit={function(_title, _desc){
+                      
+                      함수 호출되면서  밑에 e.target어쩌고 해놓은 값으로 인자 들어감 */
+                    e.target.title.value,
+                    e.target.desc.value
+                  );
                     alert("전송 성공 페이지 이동 안함");
                  }.bind(this)} > 
                  {/* submit클릭했을때 이벤트 호출 */}

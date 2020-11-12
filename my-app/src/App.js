@@ -124,7 +124,13 @@ class App extends Component {
    }
   _article =  <ReadContent title={_title} desc={_desc}></ReadContent>
   }else if (this.state.mode === 'create') {
-    _article = <CreateContent> </CreateContent>
+    _article = <CreateContent onSubmit={function(_title, _desc){
+/*onsubmit함수는 CrateContent.js에 form액션 안에 onSubmit에서 받아옴*/ 
+
+        // add content to this.state.contents 
+
+      console.log(_title, _desc);
+    }.bind(this)}> </CreateContent>
   }
   return (
     <div className="App">
